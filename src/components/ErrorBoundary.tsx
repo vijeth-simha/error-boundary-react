@@ -1,9 +1,12 @@
 import React, { ErrorInfo } from "react";
 import { Props,State } from "../types";
+import ErrorComponentTemplates from "./ErrorComponentTemplates";
 
 
 export class ErrorBoundary extends React.Component <Props, State>{
+  
   constructor(props:Props) {
+    
     super(props);
     this.state = { hasError: false };
   }
@@ -21,9 +24,11 @@ export class ErrorBoundary extends React.Component <Props, State>{
   }
 
   render() {
+    const {options} = this.props;
+    console.log(options);
+    
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+      return <ErrorComponentTemplates />;
     }
 
     return <>{this.props.children}</>
