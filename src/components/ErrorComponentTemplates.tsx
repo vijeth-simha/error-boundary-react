@@ -1,7 +1,6 @@
 import { ReactElement } from "react";
-import DefaultErrorTemplate from "../templates/DefaultErrorTemplate";
+import { DefaultErrorTemplate, TemplateOne, TemplateTwo } from "../templates";
 import { Props } from "../types";
-
 
 const ErrorComponentTemplates: React.FunctionComponent<Props> = ({
   options,
@@ -14,13 +13,14 @@ const ErrorComponentTemplates: React.FunctionComponent<Props> = ({
   }
 };
 
-
-const DefaultTemplates = ({options}:Props)=>{
-    switch (options?.errorComponentType) {
-        case "template-one":
-            return null
-        default:
-            return <DefaultErrorTemplate />;
-    }
-}
+const DefaultTemplates = ({ options }: Props) => {
+  switch (options?.errorComponentType) {
+    case "template-one":
+      return <TemplateOne />;
+    case "template-two":
+      return <TemplateTwo />;
+    default:
+      return <DefaultErrorTemplate />;
+  }
+};
 export default ErrorComponentTemplates;

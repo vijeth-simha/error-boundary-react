@@ -28,7 +28,7 @@ export class ErrorBoundary extends React.Component <Props, State>{
     console.log(options);
     
     if (this.state.hasError) {
-      return <ErrorComponentTemplates />;
+      return <ErrorComponentTemplates options={options} />;
     }
 
     return <>{this.props.children}</>
